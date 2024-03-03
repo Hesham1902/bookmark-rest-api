@@ -35,8 +35,14 @@ $ npm install
 ## Running the app
 
 ```bash
+
 # development
-$ npm run start
+# Restart development database and apply migrations
+$ npm run db:dev:restart
+
+# Start the application in development mode
+$ npm run start:dev
+
 
 # watch mode
 $ npm run start:dev
@@ -56,17 +62,33 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+
+```
+## Database
+
+```bash
+
+# Deploy migrations for development database
+$ npm run prisma:dev:deploy
+
+# Remove development database containers
+$ npm run db:dev:rm
+
+# Start development database container
+$ npm run db:dev:up
+
+# Deploy migrations for test database
+$ npm run prisma:test:deploy
+
+# Remove test database containers
+$ npm run db:test:rm
+
+# Start test database container
+$ npm run db:test:up
+
+
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
