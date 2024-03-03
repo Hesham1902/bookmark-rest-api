@@ -1,4 +1,6 @@
 .env.test
+runMe
+DockerFile
 # compiled output
 /dist
 /node_modules
