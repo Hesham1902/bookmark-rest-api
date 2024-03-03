@@ -11,7 +11,12 @@ import {
   HttpCode,
   HttpStatus,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiHeader,
+  ApiOperation,
+  ApiTags,
+} from '@nestjs/swagger';
 
 import { BookmarkService } from './bookmark.service';
 import { JwtGuard } from 'src/auth/guards';
@@ -19,6 +24,11 @@ import { GetUser } from 'src/auth/decorator';
 import { CreateBookmarkDto, EditBookmarkDto } from './dto';
 
 @ApiTags('Bookmarks')
+@ApiHeader({
+  name: 'Authorization',
+  description: 'Bearer token for authentication',
+  required: true,
+})
 @ApiBearerAuth()
 @UseGuards(JwtGuard)
 @Controller('bookmarks')

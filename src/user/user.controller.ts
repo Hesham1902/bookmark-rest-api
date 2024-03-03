@@ -7,7 +7,12 @@ import {
   Patch,
   UseGuards,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiHeader,
+  ApiOperation,
+  ApiTags,
+} from '@nestjs/swagger';
 import { User } from '@prisma/client';
 import { GetUser } from 'src/auth/decorator';
 import { JwtGuard } from 'src/auth/guards';
@@ -15,6 +20,11 @@ import { EditUserDto } from './dto';
 import { UserService } from './user.service';
 
 @ApiBearerAuth()
+@ApiHeader({
+  name: 'Authorization',
+  description: 'Bearer token for authentication',
+  required: true,
+})
 @ApiTags('Users')
 @UseGuards(JwtGuard)
 @Controller('users')
