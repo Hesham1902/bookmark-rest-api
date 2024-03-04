@@ -20,11 +20,6 @@ import { EditUserDto } from './dto';
 import { UserService } from './user.service';
 
 @ApiBearerAuth()
-@ApiHeader({
-  name: 'Authorization',
-  description: 'Bearer token for authentication',
-  required: true,
-})
 @ApiTags('Users')
 @UseGuards(JwtGuard)
 @Controller('users')
